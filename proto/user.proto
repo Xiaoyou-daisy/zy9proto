@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user;
+option go_package="./";
+
+message OrderRequest {
+  string Type = 1;
+  string Name = 2;
+  string Message = 3;
+  int64 Number = 4;
+  float Sum = 5;
+}
+
+message OrderResponse {
+  string Code = 1;
+  string Id = 2;
+}
+
+service User {
+  rpc Order(OrderRequest) returns(OrderResponse);
+}
